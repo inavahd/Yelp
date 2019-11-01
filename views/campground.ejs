@@ -1,4 +1,5 @@
 <% include partials/header %>
+<br>
 
 <div class="container">
     <div class="row">
@@ -11,13 +12,18 @@
     		</div>
     	</div>
     	<div class="col-md-9">
-	    <div class="thumbnail">
-	      <img class="img-responsive" src="<%= campground.image %>">
+
+
+
+	    <div class="card">
+	      <img class="img-responsive card-img-top" src="<%= campground.image %>">
+        <div class="card-body">
 	      <div class="caption-full">
-	        <h4 class="pull-right">
-	          $9.00/night
-	        </h4>
-	        <h4><a><%=campground.name%></a></h4>
+	        
+	        <h4 style="display: inline;" class="card-title"><a><%=campground.name%></a></h4>
+          <h6 style="display: inline; float: right;" class="pull-right">
+            $9.00/night
+          </h6>
 	        <p><%= campground.description %></p>
 	        <p>
                         <em>Submitted By <%= campground.author.username %></em>
@@ -28,11 +34,13 @@
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </form>
             <% }%>
+            </div>
 	      </div>
 	    </div>
 	    <div class="well">
 	      <div class="text-right">
-	        <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
+        <br>
+	        <a class="btn btn-success btn-sm" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
 	      </div>
 	      <hr>
 	      <% campground.comments.forEach(function(comment){ %>
@@ -58,3 +66,4 @@
 
 
 <% include partials/footer %>
+
